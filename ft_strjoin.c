@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdarcour <jdarcour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/16 22:23:09 by jdarcour          #+#    #+#             */
-/*   Updated: 2022/11/16 22:41:36 by jdarcour         ###   ########.fr       */
+/*   Created: 2022/11/16 22:40:18 by jdarcour          #+#    #+#             */
+/*   Updated: 2022/11/16 23:19:24 by jdarcour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	i;
+	char	*str;
+	int		total_len;
 
-	i = 0;
-	while (i < n)
-	{
-		if (((char *)s1)[i] != ((char *)s2)[i])
-			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
-		i++;
-	}
-	return (0);
+	total_len = ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1;
+	str = malloc(sizeof(char) * (total_len));
+	if (!str)
+		return (NULL);
+	ft_strlcpy(str, s1, ft_strlen((char *)s1) + 1);
+	ft_strlcat(str, s2, total_len);
+	return (str);
 }
