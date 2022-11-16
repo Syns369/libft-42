@@ -6,7 +6,7 @@
 /*   By: jdarcour <jdarcour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 17:36:27 by jdarcour          #+#    #+#             */
-/*   Updated: 2022/11/15 18:42:03 by jdarcour         ###   ########.fr       */
+/*   Updated: 2022/11/16 22:22:35 by jdarcour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	ft_bzero(void *s, size_t n)
 	size_t			i;
 
 	i = 0;
-
 	dest = s;
 	while (i < n)
 	{
