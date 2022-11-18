@@ -1,6 +1,3 @@
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-NAME = libft.a
 SRC = ft_atoi.c \
 	ft_bzero.c \
 	ft_calloc.c \
@@ -37,8 +34,22 @@ SRC = ft_atoi.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c \
 
-OBJS = $(SRC:.c=.o)
+BONUS = ft_lstnew.c \
+	ft_lstadd_front.c \
+	ft_lstsize.c \
+	ft_lstlast.c \
+	ft_lstadd_back.c \
+	ft_lstdelone.c \
+	ft_lstclear.c \
+	ft_lstiter.c \
+	ft_lstmap.c \
 
+OBJS = $(SRC:.c=.o)
+OBJS_BONUS = $(BONUS:.c=.o)
+
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+NAME = libft.a
 
 all : $(NAME)
 
@@ -48,12 +59,15 @@ $(NAME) : $(OBJS)
 %.o : %.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 
+bonus : $(OBJS) $(OBJS_BONUS)
+	ar rcs $(NAME) $(OBJS) $(OBJS_BONUS)
+
 clean :
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(OBJS_BONUS)
 
 fclean : clean
 	rm -f $(NAME)
 
 re : fclean all
 
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re bonus
