@@ -6,7 +6,7 @@
 /*   By: jdarcour <jdarcour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 18:05:51 by jdarcour          #+#    #+#             */
-/*   Updated: 2022/11/17 21:20:48 by jdarcour         ###   ########.fr       */
+/*   Updated: 2022/11/24 15:26:43 by jdarcour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ char	**ft_split(char const *s, char c)
 			free(tab[words_count]);
 			words_count--;
 		}
+		free(tab);
 		return (0);
 	}
 	tab[words_count - 1] = 0;

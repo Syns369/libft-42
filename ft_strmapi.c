@@ -6,7 +6,7 @@
 /*   By: jdarcour <jdarcour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 19:29:26 by jdarcour          #+#    #+#             */
-/*   Updated: 2022/11/17 21:08:12 by jdarcour         ###   ########.fr       */
+/*   Updated: 2022/11/19 15:08:04 by jdarcour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	i = 0;
 	str = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!str)
+		return (NULL);
 	while (s[i])
 	{
 		str[i] = f(i, s[i]);

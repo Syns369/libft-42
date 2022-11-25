@@ -6,7 +6,7 @@
 /*   By: jdarcour <jdarcour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:46:08 by jdarcour          #+#    #+#             */
-/*   Updated: 2022/11/15 16:09:29 by jdarcour         ###   ########.fr       */
+/*   Updated: 2022/11/19 18:04:02 by jdarcour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 int	ft_isalnum(int c)
 {
 	if (ft_isalpha(c) || ft_isdigit(c))
-	{
 		return (1);
-	}
 	return (0);
 }

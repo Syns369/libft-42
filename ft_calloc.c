@@ -6,7 +6,7 @@
 /*   By: jdarcour <jdarcour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 17:41:28 by jdarcour          #+#    #+#             */
-/*   Updated: 2022/11/18 15:46:59 by jdarcour         ###   ########.fr       */
+/*   Updated: 2022/11/24 15:26:16 by jdarcour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	int		total_size;
 	void	*ptr;
 
-	if (size == 0 || (nmemb > SIZE_MAX / size))
+	if (size && (nmemb > SIZE_MAX / size))
 		return (0);
 	total_size = nmemb * size;
 	ptr = (void *)malloc(total_size);
