@@ -1,3 +1,7 @@
+PRINTF_DIR = ft_printf/
+PRINTF_FILE = libftprintf.a
+PRINTF = $(PRINTF_DIR)$(PRINTF_FILE)
+
 SRC = ft_atoi.c \
 	ft_bzero.c \
 	ft_calloc.c \
@@ -32,6 +36,7 @@ SRC = ft_atoi.c \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c \
+	ft_strcmp.c \
 
 BONUS = ft_lstnew.c \
 	ft_lstadd_front.c \
@@ -45,6 +50,8 @@ BONUS = ft_lstnew.c \
 
 OBJS = $(SRC:.c=.o)
 OBJS_BONUS = $(BONUS:.c=.o)
+OBJS_PRINTF = $(PRINTF_DIR)\ft_printf.o\
+				$(PRINTF_DIR)\ft_putnbr.o\
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -53,7 +60,8 @@ NAME = libft.a
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	make all -C $(PRINTF_DIR)
+	ar rcs $(NAME) $(OBJS) $(OBJS_PRINTF)
 
 %.o : %.c
 	$(CC) $(CFLAGS) -o $@ -c $<
@@ -63,9 +71,11 @@ bonus : $(OBJS) $(OBJS_BONUS)
 
 clean :
 	rm -f $(OBJS) $(OBJS_BONUS)
+	make clean -C $(PRINTF_DIR)
 
 fclean : clean
 	rm -f $(NAME)
+	make fclean -C $(PRINTF_DIR)
 
 re : fclean all
 

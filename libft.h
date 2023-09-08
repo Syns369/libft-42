@@ -6,7 +6,7 @@
 /*   By: jdarcour <jdarcour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 15:47:51 by jdarcour          #+#    #+#             */
-/*   Updated: 2022/11/18 18:44:02 by jdarcour         ###   ########.fr       */
+/*   Updated: 2023/09/08 01:38:58 by jdarcour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <stdint.h>
 # include <stdio.h>
+# include "ft_printf/ft_printf.h"
 
 typedef struct s_list
 {
@@ -69,4 +70,5 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+int		ft_strcmp(char *s1, char *s2);
 #endif
