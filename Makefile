@@ -59,11 +59,13 @@ NAME = libft.a
 
 all : $(NAME)
 
-$(NAME) : $(OBJS)
-	make all -C $(PRINTF_DIR)
+$(PRINTF) :
+	@make all -C $(PRINTF_DIR)
+
+$(NAME) : $(OBJS) $(PRINTF)
 	ar rcs $(NAME) $(OBJS) $(OBJS_PRINTF)
 
-%.o : %.c
+%.o : %.c libft.h
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 bonus : $(OBJS) $(OBJS_BONUS)
